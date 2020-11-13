@@ -2,6 +2,8 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react';
 import Link from 'next/link'
+import { faEllipsisH, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ENDPOINT = `https://rickandmortyapi.com/api/character/`;
 
@@ -85,12 +87,18 @@ export default function Home({ data }) {
   console.log('data', data);
   return (
     <div className="container">
+    
+    <Head>
+      <title>Mini wiki</title>
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+    
       <h1>Wubba Lubba Dub Dub!</h1>
       <p>Rick and Morty mini Wiki</p>
 
       <form className="search" onSubmit={handleOnSubmitSearch}>
         <input name="query" type="search" />
-        <button> Search </button>
+        <button><FontAwesomeIcon icon={faSearch} style={{color: "#42f5c5", fontSize: "20"}}/> </button>
       </form>
 
       <ul className="grid">
@@ -109,7 +117,7 @@ export default function Home({ data }) {
       })}
       </ul>
       <p>
-        <button onClick={handleLoadMore}> Load More</button>
+        <button onClick={handleLoadMore}> <FontAwesomeIcon icon={faEllipsisH} style={{color: "#42f5c5", fontSize: "50"}}/></button>
       </p>
       <style jsx>{`
         .container {
@@ -217,6 +225,10 @@ export default function Home({ data }) {
         }
         .logo {
           height: 1em;
+        }
+        button {
+          border: none;
+          background-color: transparent;
         }
         @media (max-width: 600px) {
           .grid {

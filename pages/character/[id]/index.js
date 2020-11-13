@@ -1,5 +1,8 @@
+import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { faHome } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ENDPOINTD = `https://rickandmortyapi.com/api/character/`;
 
@@ -62,7 +65,7 @@ export default function Character({data}) {
       <p className="back">
         <Link href="/">
           <a>
-            Back to All Characters
+          <FontAwesomeIcon icon={faHome} style={{color: "#42f5c5", fontSize: "30"}}/>
           </a>
         </Link>
       </p>
@@ -175,6 +178,11 @@ export default function Character({data}) {
       .logo {
         height: 1em;
       }
+      .back a {
+        color: blue;
+        text-decoration: underline;
+      }
+        
       @media (max-width: 600px) {
         .grid {
           width: 100%;
@@ -184,7 +192,6 @@ export default function Character({data}) {
       .search input {
         margin-right: .5em;
       }
-      @media (max-width: 600px) {
         .search input {
           margin-right: 0;
           margin-bottom: .5em;
@@ -193,28 +200,15 @@ export default function Character({data}) {
         .search button {
           width: 100%;
         }
-      }
-      .profile {
-        display: flex;
-        margin-top: 2em;
-      }
-      @media (max-width: 600px) {
         .profile {
-          flex-direction: column;
+        display: flex;
+        flex-direction: column;
+        margin-top: 2em;
         }
-      }
-      .profile-image {
-        margin-right: 2em;
-      }
-      @media (max-width: 600px) {
         .profile-image {
           max-width: 100%;
           margin: 0 auto;
         }
-      }
-      .back a {
-        color: blue;
-        text-decoration: underline;
       }
     `}</style>
 
